@@ -106,10 +106,11 @@
   }
   .js .reveal.in { opacity: 1; transform: none; }
 
+  /* '동작 줄이기' 설정이 켜진 폰: 움직임만 빼고 부드러운 페이드는 유지 */
   @media (prefers-reduced-motion: reduce) {
-    .js body::before { display: none; }
-    .js .letter, .js .to, .js .divider::before, .js .divider::after,
-    .js .reveal { animation: none; transition: none; opacity: 1; transform: none; }
+    .js .letter { transform: none; animation-name: fade; }
+    .js .divider::before { transform: none; animation-name: none; }
+    .js .reveal { transform: none; transition: opacity 1.1s ease; }
   }
 
   .to {
